@@ -2,7 +2,7 @@ variable "softlayer_username" {
   description = "Your IBM Cloud Infrastructure (SoftLayer) user name."
 }
 variable "softlayer_api_key" {
-  description = "Your IBM Cloud Infrastructure (SoftLayer) API key."
+  description = "Your IBM Cloud Infrastructure (SoftLayer) API ke."
 }
 
 provider "ibm" {
