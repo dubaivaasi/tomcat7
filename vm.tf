@@ -70,11 +70,11 @@ variable "ssh_key" {
   description = "The public key material to use in the SSH keypair."
 }
 
-resource "ibm_compute_ssh_key" "ssh_key" {
-    label = "${var.ssh_label}"
-    notes = "${var.ssh_notes}"
-    public_key = "${var.ssh_key}"
-}
+#resource "ibm_compute_ssh_key" "ssh_key" {
+#   label = "${var.ssh_label}"
+#    notes = "${var.ssh_notes}"
+#    public_key = "${var.ssh_key}"
+#}
 
 resource "ibm_compute_vm_instance" "vm" {
   hostname                 = "${var.hostname}"
@@ -89,7 +89,7 @@ resource "ibm_compute_vm_instance" "vm" {
   disks                    = ["${var.disk_size}"]
   dedicated_acct_host_only = true
   local_disk               = false
-  ssh_key_ids              = ["${ibm_compute_ssh_key.ssh_key.id}"]
+  ssh_key_ids              = ["${var.ssh_label}"]
   tags                     = ["${var.tags}"]
   user_metadata            = "${file("install.yml")}"
 }
