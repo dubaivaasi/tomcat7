@@ -77,19 +77,17 @@ variable "ssh_key" {
 #}
 
 resource "ibm_compute_vm_instance" "vm" {
-  hostname                 = "${var.hostname}"
-  os_reference_code        = "${var.os_reference_code}"
-  domain                   = "${var.domain}"
-  datacenter               = "${var.datacenter}"
-  network_speed            = "${var.network_speed}"
-  hourly_billing           = true
-  private_network_only     = "${var.private_network_only}"
-  cores                    = "${var.cores}"
-  memory                   = "${var.memory}"
-  disks                    = ["${var.disk_size}"]
-  dedicated_acct_host_only = true
-  local_disk               = false
-  tags                     = ["${var.tags}"]
+  hostname             = "${var.hostname}"
+  domain               = "${var.domain}"
+  os_reference_code    = "CENTOS_7_64"
+  datacenter           = "lon04"
+  network_speed        = 100
+  hourly_billing       = true
+  private_network_only = false
+  cores                = 1
+  memory               = 1024
+  disks                = [25]
+  local_disk           = false
 }
 
 output "public_ip" {
