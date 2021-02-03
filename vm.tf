@@ -90,7 +90,6 @@ resource "ibm_compute_vm_instance" "vm" {
   dedicated_acct_host_only = true
   local_disk               = false
   tags                     = ["${var.tags}"]
-  user_metadata            = "${file("install.yml")}"
 }
 
 output "public_ip" {
